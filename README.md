@@ -26,6 +26,16 @@ achieving **97% accuracy** and **0.996 ROC-AUC**.
 | Precision / Recall | 0.963 / 0.978 |
 | Top churn driver | `avg_watch_time_per_day` (43% of feature importance) |
 
+### Why These Results Are Trustworthy
+
+The model was trained on **4,000 customers (80%)** and evaluated only on a
+held-back set of **1,000 customers (20%)** that it never saw during training.
+That separation means the reported accuracy and ROC-AUC measure how well the
+model generalizes to unseen customers, rather than how well it memorized its
+training data. The live demo's **100 real customers** are drawn from that
+held-back evaluation set, so its predictions are a practical demonstration of
+the same out-of-sample performance—not just memorized results.
+
 **Headline insight:** Churn in this dataset is driven overwhelmingly by **behavioral
 signals** — declining daily watch time, low total watch hours, and login recency —
 not by demographics (age, gender, region). This means retention efforts targeted at
